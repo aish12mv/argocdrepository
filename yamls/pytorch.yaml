@@ -5,7 +5,7 @@ metadata:
 spec:
   predictor:
     pytorch:
-      storageUri: gs://kfserving-examples/models/torchserve/image_classifier/v1
+      storageUri: gs://kfserving-examples/models/torchserve/image_classifier/latest
       resources:
         limits:
           memory: 4Gi
