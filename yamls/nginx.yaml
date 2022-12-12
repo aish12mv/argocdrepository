@@ -1,19 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
 metadata:
-  labels:
-    app: nginx
-  name: nginx
+  name: "torchserve"
 spec:
-  replicas: 4
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - image: nginx
-        name: nginx
+  predictor:
+    pytorch:
+      storageUri: gs://kfserving-examples/models/torchserve/image_classifier/v1
+      resources:
+        limits:
+          memory: 4Gi
+          nvidia.com/gpu: "1"
