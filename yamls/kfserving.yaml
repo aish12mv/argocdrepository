@@ -1,0 +1,10 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: xai-keyword-extraction-c6-7
+spec:
+  predictor:
+    minReplicas: 0
+    containers:
+      - name: kfserving-container
+        image: gcr.io/hclsw-gcp-xai/kwe-custom-predictor-xai:v5
