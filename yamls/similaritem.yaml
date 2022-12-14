@@ -6,5 +6,12 @@ spec:
   predictor:
     minReplicas: 0
     containers:
-      - name: kfserving-container
+      - name: kserve-container	
+        resources:	
+          limits:	
+            cpu: '1'	
+            memory: 2Gi	
+          requests:	
+            cpu: '1'	
+            memory: 2Gi
         image: gcr.io/hclsw-gcp-xai/xairecommendation:v12
